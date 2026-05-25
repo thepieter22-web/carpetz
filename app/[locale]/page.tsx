@@ -1,22 +1,16 @@
 import { notFound } from "next/navigation";
 
 const SUPPORTED_LOCALES = ["nl", "fr"] as const;
-type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
 
 export default function LocaleHome({ params }: { params: { locale: string } }) {
-  const locale = params.locale as SupportedLocale;
-
-  if (!SUPPORTED_LOCALES.includes(locale)) {
-    notFound();
-  }
+  if (!SUPPORTED_LOCALES.includes(params.locale as any)) notFound();
 
   return (
-    <main style={{ padding: 24 }}>
-      <h1>Carpetz — Logomatten op maat</h1>
-      <p>Locale: <strong>{locale}</strong></p>
-
-      {/* TODO: hier komt je echte homepage content */}
-      <p>✅ Routing werkt en deze pagina rendert.</p>
+    <main>
+      {/* hier jouw echte homepage */}
+      <h1>Carpetz</h1>
+      <p>Locale: {params.locale}</p>
+      {/* … rest van je UI */}
     </main>
   );
 }
