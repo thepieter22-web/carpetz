@@ -1,8 +1,7 @@
-
 // app/[locale]/layout.tsx
 import { notFound } from "next/navigation";
 
-const locales = ["nl", "en"] as const;
+const locales = ["nl", "fr"] as const;
 
 export default async function LocaleLayout({
   children,
@@ -15,9 +14,6 @@ export default async function LocaleLayout({
 
   if (!locales.includes(locale as any)) notFound();
 
-  return (
-    <html lang={locale}>
-      <body>{children}</body>
-    </html>
-  );
+  // ✅ GEEN <html> en GEEN <body> hier!
+  return children;
 }
