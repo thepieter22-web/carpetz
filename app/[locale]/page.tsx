@@ -19,14 +19,15 @@ export default function LocaleHome({
 
   if (!SUPPORTED_LOCALES.includes(locale as any)) notFound();
 
-  const t = MESSAGES[locale as keyof typeof MESSAGES];
+  // TypeScript klaagt omdat nl/fr types niet 100% hetzelfde lijken
+  const t = MESSAGES[locale as keyof typeof MESSAGES] as any;
 
   return (
     <main>
-      <h1>{t.title}</h1>
-      <p>{t.subtitle}</p>
+      <h1>{t.hero.title}</h1>
+      <p>{t.hero.subtitle}</p>
 
-      {/* debug/controle */}
+      {/* debug */}
       <small>Locale: {locale}</small>
     </main>
   );
