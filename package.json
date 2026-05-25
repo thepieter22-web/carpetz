@@ -14,7 +14,6 @@
     "@supabase/auth-helpers-nextjs": "^0.9.0",
     "@supabase/supabase-js": "^2.39.0",
     "jspdf": "^2.5.1",
-    "mollie": "^4.3.3",
     "next": "14.1.0",
     "next-intl": "^3.5.0",
     "openai": "^4.26.0",
