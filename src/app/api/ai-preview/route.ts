@@ -21,7 +21,11 @@ export async function POST(req: NextRequest) {
       quality: 'standard',
     });
 
-    const url = response.data[0]?.url;
+    
+const url = response.data?.[0]?.url;
+if (!url) throw new Error("No image generated");
+return NextResponse.json({ url });
+
     if (!url) throw new Error('No image generated');
 
     return NextResponse.json({ url });
